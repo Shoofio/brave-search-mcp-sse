@@ -24,7 +24,6 @@ build/
 .DS_Store
 
 # Helm
-*.tgz
 .helm/
 charts/
 
