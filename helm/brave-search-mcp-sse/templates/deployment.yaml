@@ -31,17 +31,10 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.braveSearch.existingSecret | default (include "brave-search-mcp-sse.fullname" .) }}
                   key: {{ .Values.braveSearch.existingSecretKey }}
+            {{- if .Values.ingress.enabled }}
             - name: PUBLIC_URL
-              value: >-
-                {{- if .Values.ingress.enabled -}}
-                  {{- $protocol := "http" -}}
-                  {{- if .Values.ingress.tls -}}
-                    {{- $protocol = "https" -}}
-                  {{- end -}}
-                  {{- printf "%s://%s" $protocol (index .Values.ingress.hosts 0).host -}}
-                {{- else -}}
-                  {{- printf "" -}}
-                {{- end -}}
+              value: {{ printf "http%s://%s" (ternary "s" "" (and .Values.ingress.tls (gt (len .Values.ingress.tls) 0))) (index .Values.ingress.hosts 0).host | quote }}
+            {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           readinessProbe:
@@ -56,15 +49,15 @@ spec:
               port: http
             initialDelaySeconds: 15
             periodSeconds: 20
-          {{- with .Values.nodeSelector }}
-          nodeSelector:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
-          {{- with .Values.affinity }}
-          affinity:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
-          {{- with .Values.tolerations }}
-          tolerations:
-            {{- toYaml . | nindent 12 }}
-          {{- end }} 
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }} 
