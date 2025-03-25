@@ -3,21 +3,22 @@ entries:
   brave-search-mcp-sse:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2025-03-24T15:40:37.932911548Z"
+    created: "2025-03-25T00:10:32.449243531Z"
     description: A Helm chart for Brave Search MCP SSE Server
-    digest: 77bca2ce3875d32f9afd13a0007138db63101663a21d6f79d70bc2b5b2b39d64
-    home: https://shoofio.github.io/brave-search-mcp-sse
+    digest: 451aa74ffa84c040469f19521eeee75d1860307e1741a89722bff404f8b9e3d6
+    home: https://github.com/yourusername/brave-search-mcp-sse
     keywords:
     - mcp
     - brave-search
     - sse
     maintainers:
-    - name: Shoofio
+    - email: your.email@example.com
+      name: Your Name
     name: brave-search-mcp-sse
     sources:
-    - https://shoofio.github.io/brave-search-mcp-sse/
+    - https://github.com/yourusername/brave-search-mcp-sse
     type: application
     urls:
     - https://shoofio.github.io/brave-search-mcp-sse/brave-search-mcp-sse-0.1.0.tgz
     version: 0.1.0
-generated: "2025-03-24T15:40:37.932232484Z"
+generated: "2025-03-25T00:10:32.448570651Z"

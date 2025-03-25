@@ -31,6 +31,17 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.braveSearch.existingSecret | default (include "brave-search-mcp-sse.fullname" .) }}
                   key: {{ .Values.braveSearch.existingSecretKey }}
+            - name: PUBLIC_URL
+              value: >-
+                {{- if .Values.ingress.enabled -}}
+                  {{- $protocol := "http" -}}
+                  {{- if .Values.ingress.tls -}}
+                    {{- $protocol = "https" -}}
+                  {{- end -}}
+                  {{- printf "%s://%s" $protocol (index .Values.ingress.hosts 0).host -}}
+                {{- else -}}
+                  {{- printf "" -}}
+                {{- end -}}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           readinessProbe:

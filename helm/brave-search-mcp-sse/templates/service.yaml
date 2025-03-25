@@ -7,6 +7,12 @@ metadata:
   {{- end }}
   labels:
     {{- include "brave-search-mcp-sse.labels" . | nindent 4 }}
+  {{- if not .Values.serviceMonitor.enabled }}
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/metrics"
+    prometheus.io/port: "{{ .Values.service.port }}"
+  {{- end }}
 spec:
   type: {{ .Values.service.type }}
   ports:

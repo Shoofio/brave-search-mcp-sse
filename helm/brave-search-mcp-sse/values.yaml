@@ -14,12 +14,19 @@ service:
   type: ClusterIP
   port: 8080
 
+serviceMonitor:
+  enabled: true
+  interval: 30s
+  scrapeTimeout: 10s
+  additionalLabels:
+    release: prometheus
+
 ingress:
   enabled: false
   className: ""
   annotations: {}
   hosts:
-    - host: chart-example.local
+    - host: example.com
       paths:
         - path: /
           pathType: Prefix
