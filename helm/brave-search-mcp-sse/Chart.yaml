@@ -2,15 +2,14 @@ apiVersion: v2
 name: brave-search-mcp-sse
 description: A Helm chart for Brave Search MCP SSE Server
 type: application
-version: 0.1.0
-appVersion: "0.1.0"
+version: 1.0.1
+appVersion: "1.0.1"
 maintainers:
-  - name: "Your Name"
-    email: "your.email@example.com"
+  - name: "Shoofio"
 keywords:
   - mcp
   - brave-search
   - sse
-home: "https://github.com/yourusername/brave-search-mcp-sse"
+home: "https://github.com/Shoofio/brave-search-mcp-sse"
 sources:
-  - "https://github.com/yourusername/brave-search-mcp-sse" 
+  - "https://github.com/Shoofio/brave-search-mcp-sse" 
