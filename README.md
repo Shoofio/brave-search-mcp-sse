@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/shoofio-brave-search-mcp-sse-badge.png)](https://mseep.ai/app/shoofio-brave-search-mcp-sse)
+
 # Brave Search MCP/SSE Server
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
